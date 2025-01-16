@@ -1,0 +1,25 @@
+server:
+  port: 8090
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/accompanist?serverTimezone=Asia/Seoul
+    username: root
+    password: 1234
+
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
+  type-aliases-package: com.accompanist.domain
+  configuration:
+    map-underscore-to-camel-case: true
+    jdbc-type-for-null: null
+  type-handlers-package: com.accompanist.config
+
+logging:
+  level:
+    com.accompanist: DEBUG
+    org.mybatis: DEBUG
+
+jwt:
+  secret: "your-256-bit-secret-key-here-must-be-longer-than-256-bits-for-security"

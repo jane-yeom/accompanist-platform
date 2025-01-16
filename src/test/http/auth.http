@@ -1,0 +1,38 @@
+### 회원가입
+POST http://localhost:8090/api/v1/users/signup
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "password123",
+  "name": "홍길동",
+  "phone": "010-1234-5678"
+}
+
+### 로그인
+POST http://localhost:8090/api/v1/users/login
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "password123"
+}
+
+### 반주자 프로필 등록
+POST http://localhost:8090/api/v1/profiles
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "instruments": ["Piano", "Organ"],
+  "experience": "클래식 피아노 전공, 10년 이상의 반주 경력",
+  "introduction": "안녕하세요. 전문 반주자입니다.",
+  "hourlyRate": 50000
+}
+
+### 반주자 프로필 조회
+GET http://localhost:8090/api/v1/profiles/me
+Authorization: Bearer {{auth_token}}
+
+# auth_token은 로그인 후 받은 토큰을 사용해야 합니다.
+# http-client.env.json 파일에 환경 변수로 설정할 수 있습니다.

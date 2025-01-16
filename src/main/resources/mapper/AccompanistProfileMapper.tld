@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accompanist.mapper.AccompanistProfileMapper">
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO accompanist_profiles (
+            user_id,
+            instruments,
+            experience,
+            introduction,
+            grade,
+            hourly_rate,
+            total_performances,
+            average_rating,
+            created_at,
+            updated_at
+        ) VALUES (
+            #{userId},
+            #{instruments,typeHandler=com.accompanist.config.StringListTypeHandler},
+            #{experience},
+            #{introduction},
+            #{grade},
+            #{hourlyRate},
+            #{totalPerformances},
+            #{averageRating},
+            NOW(),
+            NOW()
+        )
+    </insert>
+
+    <select id="findByUserId" resultType="com.accompanist.domain.AccompanistProfile">
+        SELECT *
+        FROM accompanist_profiles
+        WHERE user_id = #{userId}
+    </select>
+
+    <update id="update">
+        UPDATE accompanist_profiles
+        SET instruments = #{instruments,typeHandler=com.accompanist.config.StringListTypeHandler},
+            experience = #{experience},
+            introduction = #{introduction},
+            hourly_rate = #{hourlyRate},
+            updated_at = NOW()
+        WHERE user_id = #{userId}
+    </update>
+</mapper>

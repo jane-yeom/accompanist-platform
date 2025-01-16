@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accompanist.mapper.UserMapper">
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO users (
+            email,
+            password,
+            name,
+            phone,
+            status,
+            created_at,
+            updated_at
+        ) VALUES (
+            #{email},
+            #{password},
+            #{name},
+            #{phone},
+            #{status},
+            NOW(),
+            NOW()
+        )
+    </insert>
+
+    <select id="findByEmail" resultType="com.accompanist.domain.User">
+        SELECT *
+        FROM users
+        WHERE email = #{email}
+    </select>
+
+    <select id="existsByEmail" resultType="boolean">
+        SELECT COUNT(*) > 0
+        FROM users
+        WHERE email = #{email}
+    </select>
+</mapper>
