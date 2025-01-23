@@ -5,7 +5,6 @@ import com.accompanist.dto.LoginResponse;
 import com.accompanist.dto.SignUpRequest;
 import com.accompanist.dto.SignUpResponse;
 import com.accompanist.service.UserService;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;

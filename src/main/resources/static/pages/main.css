@@ -1,0 +1,43 @@
+.search-section {
+   background: #f8f8f8;
+   padding: 30px;
+   text-align: center;
+}
+.search-bar {
+   width: 80%;
+   max-width: 600px;
+   height: 50px;
+   border-radius: 25px;
+   border: 1px solid #e0e0e0;
+   padding: 0 20px;
+}
+.premium-section {
+   padding: 30px;
+   background: #f0f7ff;
+}
+.premium-cards {
+   display: flex;
+   overflow-x: auto;
+   gap: 20px;
+   padding: 10px 0;
+}
+.premium-card {
+   min-width: 200px;
+   background: white;
+   border-radius: 8px;
+   padding: 15px;
+   border: 1px solid #4A90E2;
+}
+.urgent-section {
+   padding: 30px;
+   background: #fff0f0;
+}
+.posts-section {
+   padding: 30px;
+}
+.post-card {
+   border: 1px solid #e0e0e0;
+   border-radius: 8px;
+   padding: 20px;
+   margin-bottom: 15px;
+}
